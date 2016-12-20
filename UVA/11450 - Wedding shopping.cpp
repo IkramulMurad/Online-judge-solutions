@@ -12,6 +12,7 @@ int main()
 
         vector<vector<int> > v;
 
+        //scanning
         for(int i=0; i<c; ++i){
             int k;
             vector<int> temp;
@@ -24,6 +25,7 @@ int main()
             v.push_back(temp);
         }
 
+        //process
         vector<int> old=v[0];
         vector<int> cur,tmp;
         for(int i=1; i<c; ++i){
@@ -43,6 +45,8 @@ int main()
             old=tmp;
             tmp.clear();
         }
+
+        //answer
         if(old.size()){
             int mx=0;
             for(int i=0; i<old.size(); ++i){
