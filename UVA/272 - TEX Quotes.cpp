@@ -22,6 +22,7 @@ int main()
             s.push_back(c);
         }
     }
+    //PE for newline
     cout<<s;
     return 0;
 }
