@@ -17,10 +17,8 @@ void joint(int u, int v){
 
     if(x!=y){
         parent[x]=y;
+        a[y]+=a[x];
 
-        int j=a[x], k=a[y];
-        a[y]+=j;
-        a[x]+=k;
         cout<<a[y]<<endl;
     }
     else{
