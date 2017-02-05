@@ -33,6 +33,9 @@ void solve(){
         }
     }
 
+    //dp[n][m] doesn't always contain palindrome
+    //first half of dp[n][m] is the palindromic sequence
+    //print twice first half of dp[n][m]
     string ans=dp[n][m];
     int idx;
 
@@ -47,7 +50,7 @@ int main()
 //    freopen("in.txt","r",stdin);
 //    freopen("out.txt","w",stdout);
 
-    while(getline(cin,s)){
+    while(cin>>s){
         solve();
     }
 
