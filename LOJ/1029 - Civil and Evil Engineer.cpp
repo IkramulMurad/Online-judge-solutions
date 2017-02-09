@@ -3,8 +3,6 @@
 using namespace std;
 
 typedef pair<int,int> II;
-
-priority_queue<II> pqb;
 int n;
 const int mx=105;
 vector<vector<int> > g(mx),c(mx);
