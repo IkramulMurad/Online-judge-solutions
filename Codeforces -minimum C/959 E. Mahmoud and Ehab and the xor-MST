@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long LL;
+
+int log2(LL n){
+    int ans = 0;
+    while(n){
+        n >>= 1;
+        ++ans;
+    }
+    return ans;
+}
+
+LL powOf2(int p){
+    LL ans = 1;
+    return (ans << p);
+}
+
+LL NearestPowOf2_Minus1(LL n){
+    int p = log2(n) - 1;
+
+    LL ans = powOf2(p) - 1;
+    if(n == powOf2(p + 1) - 1) ans = n;
+
+    return ans;
+}
+
+LL NearestPowOf2(LL n){
+    int p = log2(n) - 1;
+    return powOf2(p);
+}
+
+bool check(LL n, int i){
+    return (n & (1LL << i));
+}
+
+LL off(LL n, int i){
+    return (n & ~(1LL << i));
+}
+
+void offMostSigOnBit(LL& n){
+    int i = 42;
+    while(i >= 0){
+        if(check(n, i)){
+            n = off(n, i);
+            break;
+        }
+        --i;
+    }
+}
+
+LL solve(LL n){
+    LL first = NearestPowOf2_Minus1(n);
+    LL ans = log2(first) * (first + 1) / 2;
+    return ans;
+}
+
+int main()
+{
+    LL n;
+    cin >> n;
+    --n;
+
+    LL ans = 0;
+    while(n){
+        ans += solve(n);
+        if(n == NearestPowOf2_Minus1(n)) break;
+
+        ans += NearestPowOf2(n);
+        offMostSigOnBit(n);
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
