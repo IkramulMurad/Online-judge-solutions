@@ -5,7 +5,6 @@ const int mx = 1005;
 vector <vector <int> > g(mx);
 int l[mx], r[mx];
 bool visited[mx];
-int color[mx];
 
 bool dfs(int u){
     for(int i = 0; i < g[u].size(); ++i){
